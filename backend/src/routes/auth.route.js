@@ -7,5 +7,5 @@ authRoutes.post("/signin", authController.signIn);
 
 authRoutes.post("/signup", authController.signUp);
 authRoutes.delete("/signout", verifyAuth, authController.signout);
-
+authRoutes.get("/loggedIn-user", verifyAuth, authController.getLoggedInUser);
 module.exports = authRoutes;

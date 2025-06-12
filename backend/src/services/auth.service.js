@@ -39,4 +39,10 @@ const signout = async (token) => {
   await newToken.save();
 };
 
-module.exports = { signIn, signUp, signout };
+const getLoggedInUser = async (userId) => {
+  const user = await User.findById(userId, { password: 0 });
+
+  return user;
+};
+
+module.exports = { signIn, signUp, signout, getLoggedInUser };

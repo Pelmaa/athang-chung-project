@@ -2,7 +2,7 @@ const RevokedToken = require("../models/revokedToken.model");
 const { verifyJWTToken } = require("../utils/jwt.util");
 
 const verifyAuth = async (req, res, next) => {
-  const authHeader = req.headers.auhtorization;
+  const authHeader = req.headers.authorization;
   if (!authHeader) {
     return res
       .status(401)

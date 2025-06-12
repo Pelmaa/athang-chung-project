@@ -1,4 +1,4 @@
-const moviesService = require("../services/movies.service");
+const movieService = require("../services/movie.service");
 
 const getAllMovies = async (req, res) => {
   const user = req.user;
@@ -9,7 +9,7 @@ const getAllMovies = async (req, res) => {
     filter.watched = watched === "true";
   }
 
-  const movies = await moviesService.getAllMovies(user._id, filter);
+  const movies = await movieService.getAllMovies(user._id, filter);
   res.status(200).json({ movies });
 };
 
@@ -17,7 +17,7 @@ const getMovieById = async (req, res) => {
   const id = req.params.id;
   const user = req.user;
 
-  const movie = await moviesService.getMovieById(id, user._id);
+  const movie = await movieService.getMovieById(id, user._id);
 
   if (movie) {
     res.status(200).json(movie);
@@ -44,7 +44,7 @@ const addMovie = async (req, res) => {
     });
   }
 
-  const createdMovie = await moviesService.addMovie(newMovie, user._id);
+  const createdMovie = await movieService.addMovie(newMovie, user._id);
   res.status(201).json({ message: "Movie created", movie: createdMovie });
 };
 
@@ -67,7 +67,7 @@ const updateMovieById = async (req, res) => {
     });
   }
 
-  const updatedMovie = await moviesService.updateMovieById(
+  const updatedMovie = await movieService.updateMovieById(
     id,
     newMovie,
     user._id
@@ -86,7 +86,7 @@ const deleteMovieById = async (req, res) => {
   const user = req.user;
   const id = req.params.id;
 
-  const isDeleted = await moviesService.deleteMovieById(id, user._id);
+  const isDeleted = await movieService.deleteMovieById(id, user._id);
 
   if (isDeleted) {
     res.json({ message: `Movie ${id} deleted successfully` });

@@ -14,7 +14,7 @@ const verifyAuth = async (req, res, next) => {
       .json({ mesdsage: `Please provide token in valid foormat` });
   }
   const token = authHeader.split(" ")[1];
-  console.log(token);
+
   if (!token || token === "null" || token === "underfined") {
     return res.status(401).json({ message: `Please provide token` });
   }

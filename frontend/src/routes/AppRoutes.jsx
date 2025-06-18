@@ -8,17 +8,17 @@ import Profile from "../pages/auth/Profile";
 import About from "../pages/about";
 
 const ProtectedRoutes = ({ children }) => {
-  const { isloggedIn, isloading } = useAuth();
+  const { isLoggedIn, isloading } = useAuth();
 
   if (isloading) {
     return <Loading />;
   }
 
-  if (isloggedIn) {
+  if (isLoggedIn) {
     return children;
   }
 
-  return <Navigate to="/login" replace />;
+  return <Navigate to="/login" />;
 };
 
 const AppRoutes = () => {

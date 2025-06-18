@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useAuth } from "../context/AuthContext";
+import { Link } from "react-router-dom";
 import { addMovie, deleteMovie, getAllMovies, updateMovie } from "../api/api";
 
 const initialData = {
@@ -84,6 +85,9 @@ const Home = () => {
       <nav className="navbar">
         <div className="logo">WatchBuddy</div>
         <div className="nav-right">
+          <Link to="/about" className="nav-link">
+            About
+          </Link>
           <span className="user-info">{user?.name || "User"}</span>
           <button className="logout-button" onClick={handleLogout}>
             Logout

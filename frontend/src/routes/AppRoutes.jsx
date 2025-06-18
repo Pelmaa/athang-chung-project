@@ -5,6 +5,7 @@ import Home from "../pages";
 import Login from "../pages/auth/Login";
 import Register from "../pages/auth/Register";
 import Profile from "../pages/auth/Profile";
+import About from "../pages/about";
 
 const ProtectedRoutes = ({ children }) => {
   const { isloggedIn, isloading } = useAuth();
@@ -34,6 +35,7 @@ const AppRoutes = () => {
       <Route path="/login" element={<Login />} />
       <Route path="/register" element={<Register />} />
       <Route path="/profile" element={<Profile />} />
+      <Route path="/about" element={<About />} />
     </Routes>
   );
 };

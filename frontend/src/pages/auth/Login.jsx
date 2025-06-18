@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-
 import { loginUser } from "../../api/api";
 import { useAuth } from "../../context/AuthContext";
 
@@ -22,10 +21,8 @@ const Login = () => {
   const handleSubmit = async (e) => {
     try {
       e.preventDefault();
-      await loginUser({
-        email: formData.email,
-        password: formData.password,
-      });
+      const response = await loginUser(formData);
+      console.log(response);
 
       setError("");
       setFormData({ ...initialData });
@@ -33,8 +30,8 @@ const Login = () => {
       await getLoggedInUser();
       navigate("/");
     } catch (error) {
-      console.error("Login error:", error);
-      setError(error.response?.data?.message || "Login failed");
+      console.error(error);
+      setError(error.response?.data?.message || "Some error occurred");
     }
   };
 

@@ -23,16 +23,7 @@ const teamMembers = [
 
 const Team = () => {
   return (
-    <div
-      style={{
-        ...styles.container,
-        backgroundImage:
-          "url('https://th.bing.com/th/id/OIP.KdjnJ7m7cseqeWznfdlZSQHaEK?rs=1&pid=ImgDetMain&cb=idpwebp2&o=7&rm=3')",
-        backgroundSize: "cover",
-        backgroundPosition: "center",
-        color: "white",
-      }}
-    >
+    <div>
       <h2 style={styles.title}>The Chung members</h2>
       <p style={styles.subtitle}>
         Meet our dedicated Chung team members, committed to delivering

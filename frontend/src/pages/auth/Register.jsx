@@ -1,4 +1,3 @@
-import axios from "axios";
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { registerUser } from "../../api/api";
@@ -33,7 +32,7 @@ const Register = () => {
     }
 
     try {
-      await registerUser({
+      const response = await registerUser({
         name: formData.name,
         email: formData.email,
         password: formData.password,

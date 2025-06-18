@@ -1,12 +1,10 @@
 import axios from "../config/axiosConfig";
 
-const registerUser = async (userData) => {
-  const response = await axios.post("/auth/signup", userData);
-  return response.data;
+const registerUser = async (formData) => {
+  return axios.post("/auth/signup", formData);
 };
-const loginUser = async (credentials) => {
-  const response = await axios.post("/auth/signin", credentials);
-  return response.data;
+const loginUser = async (formData) => {
+  return axios.post("/auth/signin", formData);
 };
 
 const getAllMovies = () => {

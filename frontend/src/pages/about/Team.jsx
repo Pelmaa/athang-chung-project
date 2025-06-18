@@ -1,25 +1,23 @@
-import React from "react";
-
 const teamMembers = [
   {
     name: "Pema Wangchuk",
-    role: "Fullstack",
+    role: "Fullstack Developer",
   },
   {
     name: "Jamyang Dolma",
-    role: "Frontend editor",
+    role: "Frontend Developer",
   },
   {
     name: "Phurba Wangmo Sherpa",
-    role: "Frontend editor",
+    role: "Frontend Developer",
   },
   {
-    name: "Taknath Dahal",
-    role: "Backend editor",
+    name: "Tak Nath Dahal",
+    role: "Frontend Developer",
   },
   {
     name: "Phuntsho Galey Namgay",
-    role: "Backend editor",
+    role: "Backend Developer",
   },
 ];
 

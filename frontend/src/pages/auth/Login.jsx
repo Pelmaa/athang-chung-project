@@ -1,7 +1,8 @@
-import axios from "axios";
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { useAuth } from "../../contexts/AuthContext";
+
+import { loginUser } from "../../api/api";
+import { useAuth } from "../../context/AuthContext";
 
 const initialData = {
   email: "",
@@ -21,7 +22,7 @@ const Login = () => {
   const handleSubmit = async (e) => {
     try {
       e.preventDefault();
-      const response = await axios.post("http://localhost:3000/auth/signin", {
+      await loginUser({
         email: formData.email,
         password: formData.password,
       });

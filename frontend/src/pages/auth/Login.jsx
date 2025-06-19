@@ -3,6 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { loginUser } from "../../api/api";
 import { useAuth } from "../../context/AuthContext";
 import Navbar from "../../components/Navbar";
+import "./Login.css";
 
 const initialData = {
   email: "",
@@ -39,6 +40,8 @@ const Login = () => {
   return (
     <div>
       <div className="login-container">
+        <div className="logo-text">WATCHBUDDY</div>
+
         <form onSubmit={handleSubmit} className="login-form">
           <h2 className="login-title">Login</h2>
 

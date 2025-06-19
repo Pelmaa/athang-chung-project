@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { registerUser } from "../../api/api";
+import "./Register.css";
 
 const initialData = {
   name: "",
@@ -51,6 +52,7 @@ const Register = () => {
   };
   return (
     <div className="register-container">
+      <div className="logo-text">WATCHBUDDY</div>
       <form onSubmit={handleSubmit} className="register-form">
         <h2 className="register-title">Register</h2>
 

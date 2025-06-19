@@ -1,18 +1,23 @@
-/* Reset */
+/* Reset */.logo-text {
+  position: absolute;
+  top: 20px;
+  left: 30px;
+  font-size: 28px;
+  font-weight: 700;
+  color: #e50914;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  cursor: default;
+  user-select: none;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+}
+
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
 
-body,
-html,
-#root {
-  height: 100%;
-  font-family: "Netflix Sans", Arial, Helvetica, sans-serif;
-  background: #141414;
-  color: #fff;
-}
 
 .login-container {
   min-height: 100vh;
@@ -117,17 +122,4 @@ button[type="submit"]:hover {
 
 .login-link a:hover {
   text-decoration: underline;
-}
-.logo-text {
-  position: absolute;
-  top: 20px;
-  left: 30px;
-  font-size: 28px;
-  font-weight: 700;
-  color: #e50914;
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  cursor: default;
-  user-select: none;
-  letter-spacing: 3px;
-  text-transform: uppercase;
 }

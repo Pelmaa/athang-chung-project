@@ -1,21 +1,19 @@
-import { useEffect, useState } from "react";
-import axios from "axios";
+import { useAuth } from "../../context/AuthContext";
 
-function Profile() {
-  const [user, setUser] = useState(null);
+const Profile = () => {
+  const { user, isLoading } = useAuth();
 
-  useEffect(() => {
-    axios
-      .get("/profile")
-      .then((res) => setUser(res.data))
-      .catch(() => alert("Not logged in"));
-  }, []);
+  if (isLoading) {
+    return <p>Loading your profile...</p>;
+  }
 
-  if (!user) return <p>Loading...</p>;
+  if (!user?.email) {
+    return <p>User not logged in.</p>;
+  }
 
   return (
-    <div className="p-6">
-      <h2 className="text-xl font-bold">My Profile</h2>
+    <div className="profile-container">
+      <h2> Profile</h2>
       <p>
         <strong>Name:</strong> {user.name}
       </p>
@@ -23,13 +21,13 @@ function Profile() {
         <strong>Email:</strong> {user.email}
       </p>
       <p>
-        <strong>Phone:</strong> {user.phoneNumber}
+        <strong>Phone Number:</strong> {user.phoneNumber}
       </p>
       <p>
         <strong>Gender:</strong> {user.gender}
       </p>
     </div>
   );
-}
+};
 
 export default Profile;

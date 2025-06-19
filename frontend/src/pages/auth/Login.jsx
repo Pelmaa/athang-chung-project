@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { loginUser } from "../../api/api";
 import { useAuth } from "../../context/AuthContext";
+import Navbar from "../../components/Navbar";
 
 const initialData = {
   email: "",
@@ -36,38 +37,41 @@ const Login = () => {
   };
 
   return (
-    <div className="login-container">
-      <form onSubmit={handleSubmit} className="login-form">
-        <h2 className="login-title">Login</h2>
+    <div>
+      <div className="login-container">
+        <form onSubmit={handleSubmit} className="login-form">
+          <h2 className="login-title">Login</h2>
 
-        <label>
-          Email
-          <input
-            type="text"
-            name="email"
-            value={formData.email}
-            onChange={handleChange}
-            required
-          />
-        </label>
+          <label>
+            Email
+            <input
+              type="text"
+              name="email"
+              value={formData.email}
+              onChange={handleChange}
+              required
+            />
+          </label>
 
-        <label>
-          Password
-          <input
-            type="password"
-            name="password"
-            value={formData.password}
-            onChange={handleChange}
-            required
-          />
-        </label>
-        {error && <p className="login-error">{error}</p>}
-        <button type="submit">Login</button>
+          <label>
+            Password
+            <input
+              type="password"
+              name="password"
+              value={formData.password}
+              onChange={handleChange}
+              required
+            />
+          </label>
+          {error && <p className="login-error">{error}</p>}
+          <button type="submit">Login</button>
 
-        <p className="login-link">
-          Don't have an account? <Link to="/register">Register</Link>
-        </p>
-      </form>
+          <p className="login-link">
+            Don't have an account? <Link to="/register">Register</Link> |
+            <Link to="/about">About</Link>
+          </p>
+        </form>
+      </div>
     </div>
   );
 };

@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
-
 import { addMovie, deleteMovie, getAllMovies, updateMovie } from "../api/api";
 import Navbar from "../components/Navbar";
+import "./index.css";
 
 const initialData = {
   name: "",
@@ -59,7 +59,6 @@ const Home = () => {
       } else {
         response = await addMovie(form);
       }
-
       if (response && response.data) {
         await fetchMovies();
         handleDialog(false);
@@ -76,9 +75,35 @@ const Home = () => {
   };
 
   return (
-    <div>
+    <div
+      style={{
+        position: "relative",
+        minHeight: "100vh",
+        paddingBottom: "2rem",
+        overflow: "hidden",
+      }}
+    >
+      <div
+        style={{
+          position: "absolute",
+          inset: 0,
+          backgroundImage:
+            "url('https://i.pinimg.com/originals/ec/00/3e/ec003e79741904d4b094b09227079003.jpg')",
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          filter: "brightness(0.5)",
+          zIndex: -2,
+        }}
+      />
+      <div
+        style={{
+          position: "absolute",
+          inset: 0,
+          backgroundColor: "rgba(255, 255, 255, 0.35)",
+          zIndex: -1,
+        }}
+      />
       <Navbar />
-
       <div className="movie-container">
         <h1>Movie List</h1>
         <button className="add-button" onClick={() => handleDialog(true)}>
@@ -116,7 +141,6 @@ const Home = () => {
             <div style={{ fontSize: "1.8em" }}>No movies. Start adding!</div>
           )}
         </ul>
-
         {isDialogOpen && (
           <div className="dialog-overlay">
             <div className="dialog">
@@ -132,7 +156,6 @@ const Home = () => {
                     required
                   />
                 </div>
-
                 <div className="form-group">
                   <input
                     type="number"
@@ -143,7 +166,6 @@ const Home = () => {
                     required
                   />
                 </div>
-
                 <div className="form-group">
                   <input
                     type="text"
@@ -154,7 +176,6 @@ const Home = () => {
                     required
                   />
                 </div>
-
                 <div className="form-group">
                   <input
                     type="number"
@@ -167,7 +188,6 @@ const Home = () => {
                     max={10}
                   />
                 </div>
-
                 {isUpdate && (
                   <div className="form-group">
                     <label>
@@ -181,7 +201,6 @@ const Home = () => {
                     </label>
                   </div>
                 )}
-
                 <div className="form-actions">
                   <button type="button" onClick={() => handleDialog(false)}>
                     Cancel

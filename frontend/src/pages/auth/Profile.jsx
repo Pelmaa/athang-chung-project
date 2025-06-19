@@ -1,5 +1,5 @@
 import { useAuth } from "../../context/AuthContext";
-
+import "./Profile.css";
 const Profile = () => {
   const { user, isLoading } = useAuth();
 

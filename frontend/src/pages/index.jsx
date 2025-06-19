@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
-import { useAuth } from "../context/AuthContext";
-import { Link } from "react-router-dom";
+
 import { addMovie, deleteMovie, getAllMovies, updateMovie } from "../api/api";
+import Navbar from "../components/Navbar";
 
 const initialData = {
   name: "",
@@ -15,7 +15,6 @@ const Home = () => {
   const [form, setForm] = useState({ ...initialData });
   const [movies, setMovies] = useState([]);
   const [isDialogOpen, setDialogOpen] = useState(false);
-  const { user, logout } = useAuth();
 
   const isUpdate = !!form._id;
 
@@ -26,10 +25,6 @@ const Home = () => {
   const fetchMovies = async () => {
     const response = await getAllMovies();
     setMovies(response.data?.movies || []);
-  };
-
-  const handleLogout = () => {
-    logout();
   };
 
   const handleDialog = (isOpen) => {
@@ -82,18 +77,7 @@ const Home = () => {
 
   return (
     <div>
-      <nav className="navbar">
-        <div className="logo">WatchBuddy</div>
-        <div className="nav-right">
-          <Link to="/about" className="nav-link">
-            About
-          </Link>
-          <span className="user-info">{user?.name || "User"}</span>
-          <button className="logout-button" onClick={handleLogout}>
-            Logout
-          </button>
-        </div>
-      </nav>
+      <Navbar />
 
       <div className="movie-container">
         <h1>Movie List</h1>

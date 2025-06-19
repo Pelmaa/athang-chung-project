@@ -138,8 +138,9 @@ const Register = () => {
         {error && <p className="register-error">{error}</p>}
 
         <button type="submit">Register</button>
-        <p className="login-link">
-          Already have an account? <Link to="/login">Login</Link>
+        <p>
+          Already have an account? <Link to="/login">Login</Link> |{" "}
+          <Link to="/about">About</Link>
         </p>
       </form>
     </div>

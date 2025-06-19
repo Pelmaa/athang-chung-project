@@ -1,0 +1,108 @@
+.navbar {
+  background-position: center;
+  background-repeat: no-repeat;
+  position: fixed;
+  top: 1rem;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 90%;
+  max-width: 1200px;
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: center;
+  background-color: rgba(255, 255, 255, 0.15);
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  color: #ffffff;
+  z-index: 9999;
+  transition: background 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  background-size: cover;
+  
+
+}
+
+.navbar::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.4);
+  border-radius: 16px;
+  z-index: -1;
+}
+
+.navbar:hover {
+  background-color: rgba(255, 255, 255, 0.25);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.2);
+}
+
+.navbar-container {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navbar-logo {
+  font-weight: 700;
+  font-size: 1.6rem;
+  color: #e0e0e0;
+  text-shadow: 0 0 8px rgba(255, 255, 255, 0.6);
+  text-decoration: none;
+  cursor: pointer;
+  user-select: none;
+  transition: color 0.3s ease;
+}
+
+.navbar-logo:hover {
+  color: #f0f0f0;
+  text-shadow: 0 0 12px rgba(255, 255, 255, 0.9);
+}
+
+.navbar-links {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.nav-link {
+  color: #d1e9ff;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+  color: #ffffff;
+  text-decoration: underline;
+}
+
+.nav-user {
+  font-style: italic;
+  color: #d1e9ff;
+  font-weight: 600;
+  text-shadow: 0 0 4px rgba(209, 233, 255, 0.8);
+  user-select: none;
+}
+
+.nav-button {
+  background: rgba(255, 255, 255, 0.3);
+  color: #007bff;
+  border: none;
+  padding: 0.4rem 0.8rem;
+  border-radius: 12px;
+  cursor: pointer;
+  font-weight: 700;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.6);
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.nav-button:hover {
+  background: rgba(255, 255, 255, 0.5);
+  transform: scale(1.05);
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.9);
+}

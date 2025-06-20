@@ -2,10 +2,12 @@ import { Navigate, Route, Routes } from "react-router-dom";
 import Loading from "../components/Loading";
 import { useAuth } from "../context/AuthContext";
 import Home from "../pages";
-import Login from "../pages/auth/Login";
-import Register from "../pages/auth/Register";
-import Profile from "../pages/auth/Profile";
+
+import Profile from "../pages/profile/Profile";
 import About from "../pages/about";
+import Team from "../pages/about/Team";
+import Register from "../pages/auth/register/Register";
+import Login from "../pages/auth/login/Login";
 
 const ProtectedRoutes = ({ children }) => {
   const { isLoggedIn, isloading } = useAuth();
@@ -18,24 +20,25 @@ const ProtectedRoutes = ({ children }) => {
     return children;
   }
 
-  return <Navigate to="/login" />;
+  return <Navigate to="/" />;
 };
 
 const AppRoutes = () => {
   return (
     <Routes>
       <Route
-        path="/"
+        path="/profile"
         element={
           <ProtectedRoutes>
-            <Home />
+            <Profile/>
           </ProtectedRoutes>
         }
       />
-      <Route path="/login" element={<Login />} />
+      <Route path="/login" element={<Login/>} />
       <Route path="/register" element={<Register />} />
-      <Route path="/profile" element={<Profile />} />
+      <Route path="/" element={<Home />} />
       <Route path="/about" element={<About />} />
+        <Route path="/team" element={<Team/>} />
     </Routes>
   );
 };

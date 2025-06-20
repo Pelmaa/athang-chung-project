@@ -1,3 +1,7 @@
+
+import Navbar from '../../components/navbar/Navbar';
+import './team.css';
+
 const teamMembers = [
   {
     name: "Pema Wangchuk",
@@ -40,141 +44,50 @@ const teamMembers = [
 ];
 
 const Team = () => {
-  return (
-    <section style={styles.container}>
-      <div style={styles.overlay}>
-        <h2 style={styles.title}>🌟 The Members</h2>
-        <p style={styles.subtitle}>
-          Meet our vibrant Chung team — a group of passionate learners striving
-          to build creative, impactful digital experiences. We're committed to
-          growing our skills and contributing to the rising tech scene in
-          Bhutan.
-        </p>
-        <div style={styles.grid}>
+  return (<div><Navbar/>
+   <div className="team-container">
+      <div className="team-overlay">
+        <div className="team-header">
+          <h2 className="team-title">🎬 The Creative Minds Behind WatchBuddy</h2>
+          <p className="team-subtitle">
+            Meet our talented team — developers who dream, code, and build
+            the future of Bhutan's tech scene.
+          </p>
+        </div>
+        
+        <div className="team-grid">
           {teamMembers.map((member, index) => (
-            <div
-              key={index}
-              style={styles.card}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.transform = "scale(1.05)";
-                e.currentTarget.style.boxShadow =
-                  "0 8px 16px rgba(0, 0, 0, 0.2)";
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.transform = "scale(1)";
-                e.currentTarget.style.boxShadow =
-                  "0 4px 10px rgba(0, 0, 0, 0.1)";
-              }}
-            >
-              <img
-                src={member.image}
-                alt={`${member.name}'s profile`}
-                style={styles.profile}
-              />
-              <div style={styles.nameContainer}>
-                <img
-                  src={member.logo}
-                  alt={`${member.name} logo`}
-                  style={styles.logo}
+            <div key={index} className="team-card">
+              <div className="card-image-container">
+                <img 
+                  src={member.image} 
+                  alt={`${member.name}'s profile`} 
+                  className="team-profile" 
                 />
-                <h3 style={styles.name}>{member.name}</h3>
+                <div className="card-logo">
+                  <img src={member.logo} alt="role logo" />
+                </div>
               </div>
-              <p style={styles.role}>{member.role}</p>
-              <a
-                href={member.website}
-                target="_blank"
-                rel="noopener noreferrer"
-                style={styles.link}
-              >
-                Visit Website
-              </a>
+              
+              <div className="card-content">
+                <h3 className="member-name">{member.name}</h3>
+                <p className="member-role">{member.role}</p>
+                <a 
+                  href={member.website} 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="member-website"
+                >
+                  Visit Portfolio
+                </a>
+              </div>
             </div>
           ))}
         </div>
       </div>
-    </section>
+    </div></div>
+   
   );
-};
-
-const styles = {
-  container: {
-    backgroundImage: `url("https://images.unsplash.com/photo-1587614382346-4ec1d1233d0b")`,
-    backgroundSize: "cover",
-    backgroundPosition: "center",
-    padding: "4rem 2rem",
-  },
-  overlay: {
-    backgroundColor: "rgba(255, 255, 255, 0.95)",
-    borderRadius: "16px",
-    maxWidth: "1200px",
-    margin: "0 auto",
-    padding: "3rem 2rem",
-    textAlign: "center",
-    fontFamily: "'Segoe UI', Tahoma, Geneva, Verdana, sans-serif",
-    boxShadow: "0 0 30px rgba(0,0,0,0.1)",
-  },
-  title: {
-    fontSize: "2.5rem",
-    color: "#1e3a8a",
-    marginBottom: "1rem",
-  },
-  subtitle: {
-    fontSize: "1.1rem",
-    color: "#334155",
-    maxWidth: "800px",
-    margin: "0 auto 2.5rem",
-    lineHeight: "1.7",
-  },
-  grid: {
-    display: "grid",
-    gridTemplateColumns: "repeat(auto-fit, minmax(240px, 1fr))",
-    gap: "2rem",
-  },
-  card: {
-    backgroundColor: "#ffffff",
-    borderRadius: "12px",
-    padding: "1.5rem",
-    transition: "transform 0.3s, box-shadow 0.3s",
-    boxShadow: "0 4px 10px rgba(0, 0, 0, 0.1)",
-    cursor: "pointer",
-  },
-  nameContainer: {
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "center",
-    gap: "0.5rem",
-    marginBottom: "0.4rem",
-  },
-  logo: {
-    width: "24px",
-    height: "24px",
-    borderRadius: "50%",
-    objectFit: "cover",
-  },
-  name: {
-    fontSize: "1.4rem",
-    color: "#0f172a",
-    fontWeight: "600",
-  },
-  role: {
-    fontSize: "1.1rem",
-    color: "#475569",
-  },
-  link: {
-    color: "#1d4ed8",
-    textDecoration: "none",
-    fontWeight: "500",
-    marginTop: "0.5rem",
-    display: "inline-block",
-  },
-  profile: {
-    width: "80px",
-    height: "80px",
-    borderRadius: "50%",
-    objectFit: "cover",
-    margin: "0 auto 1rem",
-    boxShadow: "0 0 6px rgba(0,0,0,0.1)",
-  },
 };
 
 export default Team;

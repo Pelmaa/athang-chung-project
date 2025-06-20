@@ -1,7 +1,8 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { registerUser } from "../../api/api";
-import "./Register.css";
+
+import "./register.css";
+import { registerUser } from "../../../api/api";
 
 const initialData = {
   name: "",
@@ -141,8 +142,7 @@ const Register = () => {
 
         <button type="submit">Register</button>
         <p>
-          Already have an account? <Link to="/login">Login</Link> |{" "}
-          <Link to="/about">About</Link>
+          Already have an account? <Link to="/login">Login</Link>
         </p>
       </form>
     </div>

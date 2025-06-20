@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Plus, Search } from 'lucide-react';
+import { Plus, Search } from "lucide-react";
 import { addMovie, deleteMovie, getAllMovies, updateMovie } from "../api/api";
 import { useAuth } from "../context/AuthContext";
 import "./index.css";
@@ -12,10 +12,15 @@ const initialMovieData = {
   genre: "",
   rating: "",
   status: "Plan to Watch",
-  poster: ""
+  poster: "",
 };
 
 const Home = () => {
+  // Show intro only once per session
+  const [showIntro, setShowIntro] = useState(() => {
+    return sessionStorage.getItem("introShown") !== "true";
+  });
+
   const [form, setForm] = useState({ ...initialMovieData });
   const [movies, setMovies] = useState([]);
   const [isDialogOpen, setDialogOpen] = useState(false);
@@ -24,6 +29,17 @@ const Home = () => {
   const { isLoggedIn, isLoading } = useAuth();
 
   const isUpdate = !!form._id;
+
+  useEffect(() => {
+    if (showIntro) {
+      // Hide intro after 4 seconds and mark it shown
+      const timer = setTimeout(() => {
+        setShowIntro(false);
+        sessionStorage.setItem("introShown", "true");
+      }, 4000);
+      return () => clearTimeout(timer);
+    }
+  }, [showIntro]);
 
   useEffect(() => {
     if (isLoggedIn && !isLoading) {
@@ -82,13 +98,22 @@ const Home = () => {
     setForm(data);
   };
 
-  const filteredMovies = movies.filter(movie => {
-    const matchesSearch = movie.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-                         movie.genre.toLowerCase().includes(searchTerm.toLowerCase());
-    const matchesFilter = filterStatus === "all" || 
-                         movie.status === filterStatus;
+  const filteredMovies = movies.filter((movie) => {
+    const matchesSearch =
+      movie.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      movie.genre.toLowerCase().includes(searchTerm.toLowerCase());
+    const matchesFilter =
+      filterStatus === "all" || movie.status === filterStatus;
     return matchesSearch && matchesFilter;
   });
+
+  if (showIntro) {
+    return (
+      <div className="intro-screen">
+        <div className="intro-logo">WATCHBUDDY</div>
+      </div>
+    );
+  }
 
   if (isLoading) {
     return (
@@ -104,29 +129,26 @@ const Home = () => {
       <div className="auth-container">
         <div className="auth-background" />
         <div className="auth-overlay" />
-        
+
         <div className="auth-content">
           <div className="app-header">
-          <Navbar/>
+            <Navbar />
           </div>
 
           <div className="journey-section">
             <h2>Track Your Movie Journey</h2>
             <p className="journey-description">
-              Discover, organize, and rate your favorite movies and TV shows. Never forget what to watch next with WatchBuddy.
+              Discover, organize, and rate your favorite movies and TV shows.
+              Never forget what to watch next with WatchBuddy.
             </p>
-                        <div className="team-link">
-        
-<p>Want to know who built this?</p>
-<Link to="/team" className="meet-team-btn">
-  Meet the Team
-</Link>
-
-
-        </div>
+            <div className="team-link">
+              <p>Want to know who built this?</p>
+              <Link to="/team" className="meet-team-btn">
+                Meet the Team
+              </Link>
+            </div>
           </div>
 
-          
           <div className="auth-features">
             <div className="feature-card">
               <div className="feature-icon">
@@ -135,38 +157,40 @@ const Home = () => {
               <h3>Add Movies</h3>
               <p>Easily add movies and shows to your personal watchlist</p>
             </div>
-            
+
             <div className="feature-card">
               <div className="feature-icon">
                 <span>✓</span>
               </div>
               <h3>Track Progress</h3>
-              <p>Keep track of what you want to watch, are watching, or have watched</p>
+              <p>
+                Keep track of what you want to watch, are watching, or have
+                watched
+              </p>
             </div>
-            
+
             <div className="feature-card">
               <div className="feature-icon">
                 <span>★</span>
               </div>
               <h3>Rate & Review</h3>
-              <p>Rate your favorite movies and keep track of your preferences</p>
+              <p>
+                Rate your favorite movies and keep track of your preferences
+              </p>
             </div>
-      
           </div>
-                
         </div>
-        
       </div>
     );
   }
 
-return (
+  return (
     <div className="app-container">
       <div className="app-background" />
       <div className="app-overlay" />
-      
-      <Navbar/>
-      
+
+      <Navbar />
+
       <div className="main-content">
         <div className="search-wrapper">
           <div className="search-controls">
@@ -179,7 +203,7 @@ return (
                 onChange={(e) => setSearchTerm(e.target.value)}
               />
             </div>
-            
+
             <div className="filter-controls">
               <select
                 value={filterStatus}
@@ -191,8 +215,8 @@ return (
                 <option value="Completed">Completed</option>
                 <option value="Dropped">Dropped</option>
               </select>
-              
-              <button 
+
+              <button
                 className="add-movie-btn"
                 onClick={() => setDialogOpen(true)}
               >
@@ -206,7 +230,9 @@ return (
         <div className="watchlist-header">
           <h2>Your Watchlist</h2>
           <p className="movie-count">
-            {filteredMovies.length} {filteredMovies.length === 1 ? 'movie' : 'movies'} in your collection
+            {filteredMovies.length}{" "}
+            {filteredMovies.length === 1 ? "movie" : "movies"} in your
+            collection
           </p>
         </div>
 
@@ -215,12 +241,19 @@ return (
             filteredMovies.map((movie) => (
               <div key={movie._id} className="movie-card">
                 <div className="movie-poster">
-                  <span className={`status-badge ${movie.status.replace(/\s+/g, '-').toLowerCase()}`}>
+                  <span
+                    className={`status-badge ${movie.status
+                      .replace(/\s+/g, "-")
+                      .toLowerCase()}`}
+                  >
                     {movie.status}
                   </span>
-                  <img src={movie.poster || 'default-poster.jpg'} alt={movie.name} />
+                  <img
+                    src={movie.poster || "default-poster.jpg"}
+                    alt={movie.name}
+                  />
                 </div>
-                
+
                 <div className="movie-details">
                   <h3 className="movie-title">{movie.name}</h3>
                   <div className="movie-meta">
@@ -228,15 +261,15 @@ return (
                     <span>{movie.rating}/10</span>
                     <span>{movie.genre}</span>
                   </div>
-                  
+
                   <div className="movie-actions">
-                    <button 
+                    <button
                       className="action-btn update-btn"
                       onClick={() => handleUpdate(movie)}
                     >
                       Update
                     </button>
-                    <button 
+                    <button
                       className="action-btn delete-btn"
                       onClick={() => handleDelete(movie._id)}
                     >
@@ -248,8 +281,8 @@ return (
             ))
           ) : (
             <div className="empty-state">
-              {searchTerm || filterStatus !== "all" 
-                ? "No movies match your search" 
+              {searchTerm || filterStatus !== "all"
+                ? "No movies match your search"
                 : "No movies found. Start adding!"}
             </div>
           )}

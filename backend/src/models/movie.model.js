@@ -4,7 +4,28 @@ const movieSchema = new mongoose.Schema({
   name: String,
   year: Number,
   watched: Boolean,
-  genre: String,
+    status: {
+    type: String,
+    enum: ["Plan to Watch", "Watching", "Completed", "Dropped"],
+    default: "Plan to Watch"
+  },
+  genre:  {
+    type: String,
+    enum: [
+      "Action",
+      "Comedy",
+      "Drama",
+      "Horror",
+      "Sci-Fi",
+      "Thriller",
+      "Romance",
+      "Fantasy",
+      "Animation",
+      "Documentary",
+      "Other",
+    ],
+    default: "Other",
+  },
   rating: Number,
   userId: {
     type: mongoose.Schema.Types.ObjectId,

@@ -35,7 +35,7 @@ const addMovie = async (req, res) => {
   }
 
   const keys = Object.keys(newMovie);
-  const requiredKeys = ["name", "year", "watched", "genre"];
+  const requiredKeys = ["name", "year", "genre","rating"];
   const missingKeys = requiredKeys.filter((key) => !keys.includes(key));
 
   if (missingKeys.length > 0) {
@@ -58,7 +58,7 @@ const updateMovieById = async (req, res) => {
   }
 
   const keys = Object.keys(newMovie);
-  const requiredKeys = ["name", "year", "watched", "genre"];
+  const requiredKeys = ["name", "year", "genre","rating"];
   const missingKeys = requiredKeys.filter((key) => !keys.includes(key));
 
   if (missingKeys.length > 0) {

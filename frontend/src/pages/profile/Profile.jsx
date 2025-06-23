@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import Navbar from "../../components/navbar/Navbar";
 import { useAuth } from "../../context/AuthContext";
 import { getAllMovies } from "../../api/api";
-import "./Profile.css";
+import "./profile.css";
 
 const Profile = () => {
   const { user, isLoading } = useAuth();
@@ -40,7 +40,9 @@ const Profile = () => {
     return (
       <>
         <Navbar />
-        <p style={{ textAlign: "center", color: "#fff" }}>User not logged in.</p>
+        <p style={{ textAlign: "center", color: "#fff" }}>
+          User not logged in.
+        </p>
       </>
     );
   }
@@ -57,26 +59,51 @@ const Profile = () => {
       <div className="profile-container">
         <div className="profile-card">
           <h2>👤 Your Profile</h2>
-          <p><strong>Full Name:</strong> {user.name}</p>
-          <p><strong>Email Address:</strong> {user.email}</p>
-          <p><strong>Phone Number:</strong> {user.phoneNumber || "Not provided"}</p>
-          <p><strong>Gender:</strong> {user.gender}</p>
-          <p><strong>Joined On:</strong> {new Date(user.createdAt).toLocaleDateString()}</p>
-          <p><strong>Status:</strong> Active</p>
+          <p>
+            <strong>Full Name:</strong> {user.name}
+          </p>
+          <p>
+            <strong>Email Address:</strong> {user.email}
+          </p>
+          <p>
+            <strong>Phone Number:</strong> {user.phoneNumber || "Not provided"}
+          </p>
+          <p>
+            <strong>Gender:</strong> {user.gender}
+          </p>
+          <p>
+            <strong>Joined On:</strong>{" "}
+            {new Date(user.createdAt).toLocaleDateString()}
+          </p>
+          <p>
+            <strong>Status:</strong> Active
+          </p>
 
           <hr />
 
           <h3>🎬 Movie Statistics</h3>
           <ul>
-            <li><strong>Total Movies:</strong> {total}</li>
-            <li><strong>Completed:</strong> {completed}</li>
-            <li><strong>Watching:</strong> {watching}</li>
-            <li><strong>Plan to Watch:</strong> {plan}</li>
-            <li><strong>Dropped:</strong> {dropped}</li>
+            <li>
+              <strong>Total Movies:</strong> {total}
+            </li>
+            <li>
+              <strong>Completed:</strong> {completed}
+            </li>
+            <li>
+              <strong>Watching:</strong> {watching}
+            </li>
+            <li>
+              <strong>Plan to Watch:</strong> {plan}
+            </li>
+            <li>
+              <strong>Dropped:</strong> {dropped}
+            </li>
           </ul>
 
           <hr />
-          <p className="note">This is your WatchBuddy profile. Enjoy your watch journey!</p>
+          <p className="note">
+            This is your WatchBuddy profile. Enjoy your watch journey!
+          </p>
         </div>
       </div>
     </div>

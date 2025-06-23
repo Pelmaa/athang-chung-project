@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 
-import "./register.css";
+import "./Register.css";
 import { registerUser } from "../../../api/api";
 
 const initialData = {
@@ -112,31 +112,34 @@ const Register = () => {
           />
         </label>
 
-        <div className="form-group">
-          <label>Gender:</label>
-          <label>
-            <input
-              type="radio"
-              name="gender"
-              value="Male"
-              checked={formData.gender === "Male"}
-              onChange={handleChange}
-              required
-            />
-            Male
-          </label>
-          <label>
-            <input
-              type="radio"
-              name="gender"
-              value="Female"
-              checked={formData.gender === "Female"}
-              onChange={handleChange}
-              required
-            />
-            Female
-          </label>
-        </div>
+       <div className="form-group">
+  <label>Gender:</label>
+  <div className="gender-options">
+    <label>
+      <input
+        type="radio"
+        name="gender"
+        value="Male"
+        checked={formData.gender === "Male"}
+        onChange={handleChange}
+        required
+      />
+      Male
+    </label>
+    <label>
+      <input
+        type="radio"
+        name="gender"
+        value="Female"
+        checked={formData.gender === "Female"}
+        onChange={handleChange}
+        required
+      />
+      Female
+    </label>
+  </div>
+</div>
+
 
         {error && <p className="register-error">{error}</p>}
 

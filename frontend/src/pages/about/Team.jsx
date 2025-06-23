@@ -1,5 +1,6 @@
-import Navbar from "../../components/navbar/Navbar";
-import "./Team.css";
+
+import Navbar from '../../components/navbar/Navbar';
+import './team.css';
 
 const teamMembers = [
   {
@@ -43,53 +44,49 @@ const teamMembers = [
 ];
 
 const Team = () => {
-  return (
-    <div>
-      <Navbar />
-      <div className="team-container">
-        <div className="team-overlay">
-          <div className="team-header">
-            <h2 className="team-title">
-              🎬 The Creative Minds Behind WatchBuddy
-            </h2>
-            <p className="team-subtitle">
-              Meet our talented team — developers who dream, code, and build the
-              future of Bhutan's tech scene.
-            </p>
-          </div>
-
-          <div className="team-grid">
-            {teamMembers.map((member, index) => (
-              <div key={index} className="team-card">
-                <div className="card-image-container">
-                  <img
-                    src={member.image}
-                    alt={`${member.name}'s profile`}
-                    className="team-profile"
-                  />
-                  <div className="card-logo">
-                    <img src={member.logo} alt="role logo" />
-                  </div>
-                </div>
-
-                <div className="card-content">
-                  <h3 className="member-name">{member.name}</h3>
-                  <p className="member-role">{member.role}</p>
-                  <a
-                    href={member.website}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="member-website"
-                  >
-                    Visit Portfolio
-                  </a>
+  return (<div><Navbar/>
+   <div className="team-container">
+      <div className="team-overlay">
+        <div className="team-header">
+          <h2 className="team-title">🎬 The Creative Minds Behind WatchBuddy</h2>
+          <p className="team-subtitle">
+            Meet our talented team — developers who dream, code, and build
+            the future of Bhutan's tech scene.
+          </p>
+        </div>
+        
+        <div className="team-grid">
+          {teamMembers.map((member, index) => (
+            <div key={index} className="team-card">
+              <div className="card-image-container">
+                <img 
+                  src={member.image} 
+                  alt={`${member.name}'s profile`} 
+                  className="team-profile" 
+                />
+                <div className="card-logo">
+                  <img src={member.logo} alt="role logo" />
                 </div>
               </div>
-            ))}
-          </div>
+              
+              <div className="card-content">
+                <h3 className="member-name">{member.name}</h3>
+                <p className="member-role">{member.role}</p>
+                <a 
+                  href={member.website} 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="member-website"
+                >
+                  Visit Portfolio
+                </a>
+              </div>
+            </div>
+          ))}
         </div>
       </div>
-    </div>
+    </div></div>
+   
   );
 };
 

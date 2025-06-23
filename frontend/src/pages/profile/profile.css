@@ -97,7 +97,8 @@
   margin-bottom: 1rem;
 }
 
-.profile-card p, .profile-card li {
+.profile-card p,
+.profile-card li {
   font-size: 1rem;
   margin: 0.5rem 0;
 }

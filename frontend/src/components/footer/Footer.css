@@ -1,0 +1,102 @@
+.app-footer {
+  background-color: #1c1c1e;
+  color: #f1f1f1;
+  padding: 2rem 1rem;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  border-top: 1px solid #333;
+}
+
+.footer-content {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: auto;
+  gap: 2rem;
+}
+
+.footer-section {
+  flex: 1 1 250px;
+}
+
+.footer-heading {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+  color: red
+}
+
+.footer-description {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: #ccc;
+}
+
+.footer-subheading {
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+  color:red
+}
+
+.footer-list {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-link {
+  display: block;
+  color: #ccc;
+  text-decoration: none;
+  margin-bottom: 0.5rem;
+  transition: color 0.3s ease;
+}
+
+.footer-link:hover {
+  color: #ffcc00;
+}
+
+.footer-contact {
+  margin-bottom: 1rem;
+}
+
+.footer-contact-link {
+  display: flex;
+  align-items: center;
+  color: #ccc;
+  text-decoration: none;
+  gap: 0.5rem;
+  transition: color 0.3s ease;
+}
+
+.footer-contact-link:hover {
+  color: #ffcc00;
+}
+
+.social-links {
+  display: flex;
+  gap: 1rem;
+}
+
+.social-link {
+  color: #ccc;
+  transition: transform 0.3s, color 0.3s;
+}
+
+.social-link:hover {
+  color: #ffcc00;
+  transform: scale(1.1);
+}
+
+.footer-bottom {
+  border-top: 1px solid #333;
+  text-align: center;
+  padding-top: 1rem;
+  margin-top: 2rem;
+  font-size: 0.85rem;
+  color: #999;
+}
+
+.tmdb-link {
+  color: #4db8ff;
+  text-decoration: underline;
+  margin-left: 5px;
+}

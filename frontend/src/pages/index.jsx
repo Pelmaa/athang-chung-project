@@ -1,10 +1,11 @@
 import { useEffect, useState } from "react";
-import { Plus, Search } from "lucide-react";
+import { Plus, Search, Edit, Trash2 } from "lucide-react";
 import { addMovie, deleteMovie, getAllMovies, updateMovie } from "../api/api";
 import { useAuth } from "../context/AuthContext";
 import "./index.css";
 import Navbar from "../components/navbar/Navbar";
 import { Link } from "react-router-dom";
+import Footer from "../components/footer/Footer";
 
 const initialMovieData = {
   name: "",
@@ -16,7 +17,6 @@ const initialMovieData = {
 };
 
 const Home = () => {
-  // Show intro only once per session
   const [showIntro, setShowIntro] = useState(() => {
     return sessionStorage.getItem("introShown") !== "true";
   });
@@ -32,7 +32,6 @@ const Home = () => {
 
   useEffect(() => {
     if (showIntro) {
-      // Hide intro after 4 seconds and mark it shown
       const timer = setTimeout(() => {
         setShowIntro(false);
         sessionStorage.setItem("introShown", "true");
@@ -141,8 +140,20 @@ const Home = () => {
               Discover, organize, and rate your favorite movies and TV shows.
               Never forget what to watch next with WatchBuddy.
             </p>
+            <div className="cta-buttons">
+              <Link to="/register" className="primary-cta">
+                Get Started - It's Free
+              </Link>
+              <Link to="/login" className="secondary-cta">
+                Already have an account? Login
+              </Link>
+            </div>
             <div className="team-link">
-              <p>Want to know who built this?</p>
+              <h2>Created With Passion</h2>
+              <p>
+                WatchBuddy was built by movie lovers, for movie lovers. Meet the
+                team behind this project.
+              </p>
               <Link to="/team" className="meet-team-btn">
                 Meet the Team
               </Link>
@@ -178,8 +189,37 @@ const Home = () => {
                 Rate your favorite movies and keep track of your preferences
               </p>
             </div>
+
+            <div className="testimonials">
+              <h2>What Our Users Say</h2>
+              <div className="testimonial-cards">
+                <div className="testimonial">
+                  <div className="quote">
+                    "WatchBuddy completely changed how I organize my movie
+                    nights!"
+                  </div>
+                  <div className="author">- Pema</div>
+                </div>
+
+                <div className="testimonial">
+                  <div className="quote">
+                    "Finally an app that helps me remember what I wanted to
+                    watch!"
+                  </div>
+                  <div className="author">- Khenrab</div>
+                </div>
+                <div className="testimonial">
+                  <div className="quote">
+                    "The recommendation engine found me movies I never would
+                    have discovered."
+                  </div>
+                  <div className="author">- Wangchuk</div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
+        <Footer />
       </div>
     );
   }
@@ -266,14 +306,16 @@ const Home = () => {
                     <button
                       className="action-btn update-btn"
                       onClick={() => handleUpdate(movie)}
+                      aria-label="Edit"
                     >
-                      Update
+                      <Edit />
                     </button>
                     <button
                       className="action-btn delete-btn"
                       onClick={() => handleDelete(movie._id)}
+                      aria-label="Delete"
                     >
-                      Delete
+                      <Trash2 />
                     </button>
                   </div>
                 </div>
@@ -379,6 +421,7 @@ const Home = () => {
           </div>
         </div>
       )}
+      <Footer />
     </div>
   );
 };

@@ -108,7 +108,7 @@
 /* ✅ Responsive Tweaks */
 @media (max-width: 768px) {
   .register-container {
-    padding: 50px 20px;
+    padding: 70px 20px;
   }
 
   .register-form {

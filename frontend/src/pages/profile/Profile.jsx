@@ -4,6 +4,7 @@ import { useAuth } from "../../context/AuthContext";
 import { getAllMovies } from "../../api/api";
 import "./profile.css";
 import Footer from "../../components/footer/Footer";
+import Loading from "../../components/Loading";
 
 const Profile = () => {
   const { user, isLoading } = useAuth();
@@ -30,9 +31,7 @@ const Profile = () => {
     return (
       <>
         <Navbar />
-        <div style={{ padding: "2rem", textAlign: "center", color: "#fff" }}>
-          <p>Loading your profile...</p>
-        </div>
+        <Loading />
       </>
     );
   }

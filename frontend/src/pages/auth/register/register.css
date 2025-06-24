@@ -164,13 +164,13 @@
 .form-group input[type="radio"] {
   accent-color: #e50914;
   transform: scale(1.1);
-  margin-right: 5px;
+  margin-right: 1px;
 }
 
 /* Optional: group the gender choices side-by-side */
 .gender-options {
   display: flex;
-  gap: 50px;
+  gap: 30px;
   margin-top: 8px;
 }
 .navbar-logo {

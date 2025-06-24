@@ -124,3 +124,16 @@ button[type="submit"]:hover {
 .login-link a:hover {
   text-decoration: underline;
 }
+.navbar-logo {
+  display: flex;
+  flex-direction: column;
+}
+
+.navbar-title {
+  font-size: 1.8rem;
+  background: linear-gradient(to right, #e50914, #f5f5f1);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  font-weight: 700;
+}

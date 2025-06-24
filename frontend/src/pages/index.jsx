@@ -109,7 +109,12 @@ const Home = () => {
   if (showIntro) {
     return (
       <div className="intro-screen">
-        <div className="intro-logo">WATCHBUDDY</div>
+        <div className="intro-logo">
+          <div className="navbar-logo">
+            <h1 className="navbar-title">WatchBuddy</h1>
+            <p className="navbar-subtitle">Your personal movie companion</p>
+          </div>
+        </div>
       </div>
     );
   }

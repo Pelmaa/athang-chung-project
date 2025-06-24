@@ -3,6 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 
 import "./register.css";
 import { registerUser } from "../../../api/api";
+import Footer from "../../../components/footer/Footer";
 
 const initialData = {
   name: "",
@@ -52,102 +53,110 @@ const Register = () => {
     }
   };
   return (
-    <div className="register-container">
-      <div className="logo-text">WATCHBUDDY</div>
-      <form onSubmit={handleSubmit} className="register-form">
-        <h2 className="register-title">Register</h2>
+    <>
+      <nav className="navbar">
+        <Link to="/" className="navbar-logo">
+          <h1 className="navbar-title">WatchBuddy</h1>
+          <p className="navbar-subtitle">Your personal movie companion</p>
+        </Link>
+      </nav>
+      <div className="register-container">
+        <form onSubmit={handleSubmit} className="register-form">
+          <h2 className="register-title">Register</h2>
 
-        <label>
-          Name
-          <input
-            type="text"
-            name="name"
-            value={formData.name}
-            onChange={handleChange}
-            required
-          />
-        </label>
+          <label>
+            Name
+            <input
+              type="text"
+              name="name"
+              value={formData.name}
+              onChange={handleChange}
+              required
+            />
+          </label>
 
-        <label>
-          Email
-          <input
-            type="email"
-            name="email"
-            value={formData.email}
-            onChange={handleChange}
-            required
-          />
-        </label>
+          <label>
+            Email
+            <input
+              type="email"
+              name="email"
+              value={formData.email}
+              onChange={handleChange}
+              required
+            />
+          </label>
 
-        <label>
-          Password
-          <input
-            type="password"
-            name="password"
-            value={formData.password}
-            onChange={handleChange}
-            required
-          />
-        </label>
+          <label>
+            Password
+            <input
+              type="password"
+              name="password"
+              value={formData.password}
+              onChange={handleChange}
+              required
+            />
+          </label>
 
-        <label>
-          Confirm Password
-          <input
-            type="password"
-            name="confirmPassword"
-            value={formData.confirmPassword}
-            onChange={handleChange}
-            required
-          />
-        </label>
+          <label>
+            Confirm Password
+            <input
+              type="password"
+              name="confirmPassword"
+              value={formData.confirmPassword}
+              onChange={handleChange}
+              required
+            />
+          </label>
 
-        <label>
-          Phone Number
-          <input
-            type="tel"
-            name="phoneNumber"
-            value={formData.phoneNumber}
-            onChange={handleChange}
-            required
-          />
-        </label>
+          <label>
+            Phone Number
+            <input
+              type="tel"
+              name="phoneNumber"
+              value={formData.phoneNumber}
+              onChange={handleChange}
+              required
+            />
+          </label>
 
-        <div className="form-group">
-          <label>Gender:</label>
-          <div className="gender-options">
-            <label>
-              <input
-                type="radio"
-                name="gender"
-                value="Male"
-                checked={formData.gender === "Male"}
-                onChange={handleChange}
-                required
-              />
-              Male
-            </label>
-            <label>
-              <input
-                type="radio"
-                name="gender"
-                value="Female"
-                checked={formData.gender === "Female"}
-                onChange={handleChange}
-                required
-              />
-              Female
-            </label>
+          <div className="form-group">
+            <label>Gender:</label>
+            <div className="gender-options">
+              <label>
+                <input
+                  type="radio"
+                  name="gender"
+                  value="Male"
+                  checked={formData.gender === "Male"}
+                  onChange={handleChange}
+                  required
+                />
+                Male
+              </label>
+              <label>
+                <input
+                  type="radio"
+                  name="gender"
+                  value="Female"
+                  checked={formData.gender === "Female"}
+                  onChange={handleChange}
+                  required
+                />
+                Female
+              </label>
+            </div>
           </div>
-        </div>
 
-        {error && <p className="register-error">{error}</p>}
+          {error && <p className="register-error">{error}</p>}
 
-        <button type="submit">Register</button>
-        <p>
-          Already have an account? <Link to="/login">Login</Link>
-        </p>
-      </form>
-    </div>
+          <button type="submit">Register</button>
+          <p>
+            Already have an account? <Link to="/login">Login</Link>
+          </p>
+        </form>
+      </div>
+      <Footer />
+    </>
   );
 };
 

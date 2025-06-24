@@ -10,7 +10,7 @@ const getloginUser = async () => {
   return axios.get("/auth/loggedin-user");
 };
 const deleteUser = async () => {
-  return axios.get("/auth/signout");
+  return axios.delete("/auth/signout");
 };
 
 const getAllMovies = () => {

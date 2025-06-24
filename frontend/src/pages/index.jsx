@@ -125,102 +125,103 @@ const Home = () => {
 
   if (!isLoggedIn) {
     return (
-      <div className="auth-container">
-        <div className="auth-background" />
-        <div className="auth-overlay" />
+      <>
+        <Navbar />
+        <div className="auth-container">
+          <div className="auth-background" />
+          <div className="auth-overlay" />
 
-        <div className="auth-content">
-          <div className="app-header">
-            <Navbar />
-          </div>
+          <div className="auth-content">
+            <div className="app-header"></div>
 
-          <div className="journey-section">
-            <h2>Track Your Movie Journey</h2>
-            <p className="journey-description">
-              Discover, organize, and rate your favorite movies and TV shows.
-              Never forget what to watch next with WatchBuddy.
-            </p>
-            <div className="cta-buttons">
-              <Link to="/register" className="primary-cta">
-                Get Started - It's Free
-              </Link>
-              <Link to="/login" className="secondary-cta">
-                Already have an account? Login
-              </Link>
-            </div>
-            <div className="team-link">
-              <h2>Created With Passion</h2>
-              <p>
-                WatchBuddy was built by movie lovers, for movie lovers. Meet the
-                team behind this project.
+            <div className="journey-section">
+              <h2>Track Your Movie Journey</h2>
+              <p className="journey-description">
+                Discover, organize, and rate your favorite movies and TV shows.
+                Never forget what to watch next with WatchBuddy.
               </p>
-              <Link to="/team" className="meet-team-btn">
-                Meet the Team
-              </Link>
-            </div>
-          </div>
-
-          <div className="auth-features">
-            <div className="feature-card">
-              <div className="feature-icon">
-                <span>+</span>
+              <div className="cta-buttons">
+                <Link to="/register" className="primary-cta">
+                  Get Started - It's Free
+                </Link>
+                <Link to="/login" className="secondary-cta">
+                  Already have an account? Login
+                </Link>
               </div>
-              <h3>Add Movies</h3>
-              <p>Easily add movies and shows to your personal watchlist</p>
-            </div>
-
-            <div className="feature-card">
-              <div className="feature-icon">
-                <span>✓</span>
+              <div className="team-link">
+                <h2>Created With Passion</h2>
+                <p>
+                  WatchBuddy was built by movie lovers, for movie lovers. Meet
+                  the team behind this project.
+                </p>
+                <Link to="/team" className="meet-team-btn">
+                  Meet the Team
+                </Link>
               </div>
-              <h3>Track Progress</h3>
-              <p>
-                Keep track of what you want to watch, are watching, or have
-                watched
-              </p>
             </div>
 
-            <div className="feature-card">
-              <div className="feature-icon">
-                <span>★</span>
-              </div>
-              <h3>Rate & Review</h3>
-              <p>
-                Rate your favorite movies and keep track of your preferences
-              </p>
-            </div>
-
-            <div className="testimonials">
-              <h2>What Our Users Say</h2>
-              <div className="testimonial-cards">
-                <div className="testimonial">
-                  <div className="quote">
-                    "WatchBuddy completely changed how I organize my movie
-                    nights!"
-                  </div>
-                  <div className="author">- Pema</div>
+            <div className="auth-features">
+              <div className="feature-card">
+                <div className="feature-icon">
+                  <span>+</span>
                 </div>
+                <h3>Add Movies</h3>
+                <p>Easily add movies and shows to your personal watchlist</p>
+              </div>
 
-                <div className="testimonial">
-                  <div className="quote">
-                    "Finally an app that helps me remember what I wanted to
-                    watch!"
-                  </div>
-                  <div className="author">- Khenrab</div>
+              <div className="feature-card">
+                <div className="feature-icon">
+                  <span>✓</span>
                 </div>
-                <div className="testimonial">
-                  <div className="quote">
-                    "The recommendation engine found me movies I never would
-                    have discovered."
+                <h3>Track Progress</h3>
+                <p>
+                  Keep track of what you want to watch, are watching, or have
+                  watched
+                </p>
+              </div>
+
+              <div className="feature-card">
+                <div className="feature-icon">
+                  <span>★</span>
+                </div>
+                <h3>Rate & Review</h3>
+                <p>
+                  Rate your favorite movies and keep track of your preferences
+                </p>
+              </div>
+
+              <div className="testimonials">
+                <h2>What Our Users Say</h2>
+                <div className="testimonial-cards">
+                  <div className="testimonial">
+                    <div className="quote">
+                      "WatchBuddy completely changed how I organize my movie
+                      nights!"
+                    </div>
+                    <div className="author">- Pema</div>
                   </div>
-                  <div className="author">- Wangchuk</div>
+
+                  <div className="testimonial">
+                    <div className="quote">
+                      "Finally an app that helps me remember what I wanted to
+                      watch!"
+                    </div>
+                    <div className="author">- Khenrab</div>
+                  </div>
+                  <div className="testimonial">
+                    <div className="quote">
+                      "The recommendation engine found me movies I never would
+                      have discovered."
+                    </div>
+                    <div className="author">- Wangchuk</div>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
         <Footer />
-      </div>
+      </>
     );
   }
 

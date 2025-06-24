@@ -40,7 +40,9 @@ const Login = () => {
   return (
     <div>
       <div className="login-container">
-        <div className="logo-text">WATCHBUDDY</div>
+        <Link to="/" className="logo-text">
+          WATCHBUDDY
+        </Link>
 
         <form onSubmit={handleSubmit} className="login-form">
           <h2 className="login-title">Login</h2>
